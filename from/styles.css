@@ -305,68 +305,144 @@ button {
     transform: translateY(-2px);
 }
 
-/* Carousel Styles */
-.carousel {
+/* Gallery Carousel - Professional UX */
+#imagenes {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+}
+
+#imagenes .carousel {
     position: relative;
-    max-width: 400px;
-    max-height: 700px;
-    margin: 0 auto;
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+    margin: 2rem 0;
+    border-radius: 20px;
     overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: var(--sombra-fuerte);
+    background: linear-gradient(135deg, var(--verde-principal), var(--verde-oscuro));
 }
 
-.carousel-inner {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+#imagenes .carousel-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
-.carousel-item {
-    min-width: 100%;
-    display: none;
+#imagenes .carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.carousel-item.active {
+#imagenes .carousel-item.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+#imagenes .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
 }
 
-.carousel-item img {
-    width: 100%;
-    height: auto;
-    max-height: 500px;
-    object-fit: cover;
-    border-radius: 15px;
+#imagenes .carousel:hover .carousel-item img {
+    transform: scale(1.02);
 }
 
-.carousel-control {
+#imagenes .carousel-control {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0,0,0,0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 24px;
+    background: rgba(76, 175, 80, 0.8);
+    color: var(--blanco);
+    border: 2px solid var(--blanco);
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+}
+
+#imagenes .carousel-control:hover {
+    background: var(--verde-principal);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+}
+
+#imagenes .carousel-control.prev {
+    left: 20px;
+}
+
+#imagenes .carousel-control.next {
+    right: 20px;
+}
+
+#imagenes .carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.9s ease;
+    gap: 12px;
+    z-index: 10;
 }
 
-.carousel-control:hover {
-    background: rgba(0,0,0,0.8);
+#imagenes .indicator {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
 }
 
-.carousel-control.prev {
-    left: 10px;
+#imagenes .indicator.active,
+#imagenes .indicator:hover {
+    background: var(--blanco);
+    transform: scale(1.2);
+    box-shadow: 0 0 10px var(--verde-claro);
 }
 
-.carousel-control.next {
-    right: 10px;
+/* Pausa en hover */
+.carousel.paused .carousel-item {
+    transition-duration: 0.3s;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #imagenes .carousel {
+        height: 50vh;
+        min-height: 300px;
+        border-radius: 15px;
+        margin: 1.5rem 0;
+    }
+    
+    #imagenes .carousel-control {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+    }
+    
+    #imagenes .carousel-control.prev {
+        left: 15px;
+    }
+    
+    #imagenes .carousel-control.next {
+        right: 15px;
+    }
 }
 
 /* ===== ESTILOS PÁGINA DE CONTACTO ===== */
@@ -415,7 +491,7 @@ button {
 
 .contact-link {
     text-decoration: none;
-    color: var(--naranja-energia);
+    color: var(--negro-profundo);
     font-weight: bold;
     display: flex;
     flex-direction: column;
@@ -425,7 +501,7 @@ button {
 
 .contact-link img {
     border-radius: 50%;
-    border: 3px solid var(--naranja-energia);
+    /* border: 3px solid var(--naranja-energia); */
     transition: border-color 0.3s ease;
 }
 
