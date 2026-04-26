@@ -1,0 +1,411 @@
+:root {
+    /* Colores primarios del proyecto */
+    --verde-principal: #4CAF2F;
+    --verde-oscuro: #1F6A1E;
+    --verde-claro: #8BCF4D;
+    
+    /* Colores secundarios */
+    --naranja-energia: #FF7A18;
+    --rojo-acentos: #E5391A;
+    --amarillo-luz: #FFC947;
+    
+    /* Colores neutros */
+    --negro-profundo: #1C1C1C;
+    --gris-oscuro: #3A3A3A;
+    --gris-claro: #EDEDED;
+    --blanco: #FFFFFF;
+    
+    /* Utilidades */
+    --sombra-suave: 0 2px 4px rgba(0,0,0,0.1);
+    --sombra-fuerte: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--gris-claro);
+    color: var(--gris-oscuro);
+    line-height: 1.6;
+}
+
+/* Logo */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, var(--verde-principal), var(--verde-oscuro));
+}
+
+.logo {
+    border-radius: 15px;
+    background-color: var(--blanco);
+    padding: 0.5rem;
+    box-shadow: var(--sombra-fuerte);
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Header */
+header {
+    background: var(--verde-principal);
+    padding: 2rem;
+    text-align: center;
+    color: var(--blanco);
+    box-shadow: var(--sombra-fuerte);
+    border-radius: 0 0 20px 20px;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--naranja-energia), var(--amarillo-luz));
+}
+
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Navegación */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+nav ul li a {
+    background: var(--naranja-energia);
+    border-radius: 25px;
+    color: var(--blanco);
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0.7rem 1.8rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    box-shadow: var(--sombra-fuerte);
+    border: 2px solid transparent;
+    font-size: 1rem;
+}
+
+nav ul li a:hover {
+    background: var(--rojo-acentos);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(229, 57, 26, 0.4);
+    border-color: var(--rojo-acentos);
+}
+
+/* Menú / Grid de productos */
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding-bottom: 3rem;
+}
+
+/* Categoría contenedor */
+.categoria-contenedor {
+    width: 100%;
+    background: linear-gradient(135deg, var(--verde-principal), var(--verde-oscuro));
+    padding: 1.5rem 2rem;
+    margin: 2rem 0 1rem 0;
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: var(--sombra-fuerte);
+}
+
+.categoria-contenedor h1 {
+    color: var(--blanco);
+    font-size: 1.8rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    letter-spacing: 2px;
+}
+
+/* Tarjetas de productos */
+.productos {
+    background-color: var(--blanco);
+    border-radius: 20px;
+    padding: 1.5rem;
+    text-align: center;
+    width: 320px;
+    box-shadow: var(--sombra-suave);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 4px solid var(--verde-principal);
+}
+
+.productos:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--sombra-fuerte);
+}
+
+.productos img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    border: 3px solid var(--verde-claro);
+}
+
+.productos h1 {
+    color: var(--verde-oscuro);
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    min-height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.productos p {
+    margin: 0.4rem 0;
+    font-size: 0.95rem;
+    color: var(--gris-oscuro);
+}
+
+.productos p:nth-of-type(2) {
+    color: var(--naranja-energia);
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 0.8rem 0;
+}
+
+/* Botones de producto */
+.productos button {
+    background: linear-gradient(135deg, var(--verde-principal), var(--verde-oscuro));
+    border: none;
+    border-radius: 12px;
+    box-shadow: var(--sombra-suave);
+    color: var(--blanco);
+    cursor: pointer;
+    font-weight: 600;
+    margin: 0.3rem 0.2rem;
+    padding: 0.6rem 1rem;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.productos button:hover {
+    background: var(--naranja-energia);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 122, 24, 0.4);
+}
+
+/* Footer */
+footer {
+    margin-top: 4rem;
+    padding: 2rem;
+    background: var(--negro-profundo);
+    color: var(--blanco);
+    border-radius: 20px 20px 0 0;
+    box-shadow: var(--sombra-fuerte);
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    width: 100%;
+}
+
+footer a {
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+footer img {
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+footer img:hover {
+    transform: scale(1.1);
+}
+
+/* Botón WhatsApp flotante */
+#whatsappBtn {
+    position: fixed;
+    bottom: 90px;
+    right: 30px;
+    z-index: 101;
+    background: linear-gradient(145deg, #25D366, #128C7E);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--sombra-fuerte);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+#whatsappBtn:hover {
+    transform: translateY(-3px) scale(1.1);
+}
+
+#whatsappBtn img {
+    width: 28px;
+    height: 28px;
+}
+
+/* Botón Carrito flotante */
+#cartBtn {
+    position: fixed;
+    bottom: 160px;
+    right: 30px;
+    z-index: 101;
+    background: linear-gradient(145deg, var(--naranja-energia), var(--rojo-acentos));
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--sombra-fuerte);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+#cartBtn:hover {
+    transform: translateY(-3px) scale(1.1);
+}
+
+#cartBtn img {
+    width: 28px;
+    height: 28px;
+}
+
+/* Botón Ir al inicio */
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 101;
+    background: linear-gradient(145deg, #2d88ff, #0044ff);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    color: var(--blanco);
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: var(--sombra-fuerte);
+    transition: all 0.3s ease;
+}
+
+#scrollToTopBtn:hover {
+    transform: translateY(-3px) scale(1.1);
+}
+
+/* Modal del carrito y órdenes */
+#cartModal, #orderDetailsModal, #productImageModal {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#cartModal button, #orderDetailsModal button {
+    background: linear-gradient(135deg, var(--verde-principal), var(--verde-oscuro));
+    border: none;
+    border-radius: 8px;
+    color: var(--blanco);
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0.6rem 1.2rem;
+    transition: all 0.3s ease;
+}
+
+#cartModal button:hover, #orderDetailsModal button:hover {
+    background: var(--naranja-energia);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    nav ul {
+        gap: 0.5rem;
+    }
+
+    nav ul li a {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .productos {
+        width: 90%;
+        max-width: 340px;
+    }
+
+    .productos img {
+        width: 150px;
+        height: 150px;
+    }
+
+    #whatsappBtn, #cartBtn, #scrollToTopBtn {
+        width: 45px;
+        height: 45px;
+    }
+
+    #cartBtn {
+        bottom: 140px;
+        right: 20px;
+    }
+
+    #whatsappBtn {
+        bottom: 80px;
+        right: 20px;
+    }
+
+    #scrollToTopBtn {
+        bottom: 15px;
+        right: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        width: 100px;
+        height: auto;
+    }
+
+    header {
+        padding: 1.5rem 1rem;
+    }
+
+    .categoria-contenedor h1 {
+        font-size: 1.4rem;
+    }
+
+    .productos h1 {
+        font-size: 1rem;
+    }
+}
